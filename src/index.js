@@ -1,17 +1,69 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createGlobalStyle } from "styled-components";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+  // Reset CSS
+  body, div, section {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  input {
+    border: none;
+    outline: none;
+  }
+
+  // Typography
+  :root {
+    --main-bg-color: #353b48;
+    --main-font-color: #f5f6fa;
+
+    // todo button color
+    --todo-update-btn-color: #fbc531;
+    --todo-update-btn-color-hover: #e1b12c;
+    --todo-complete-btn-color: #4cd137;
+    --todo-complete-btn-color-hover: #44bd32;
+    --todo-delete-btn-color: #e84118;
+    --todo-delete-btn-color-hover: #c23616;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-family: 'Nanum Gothic Coding', monospace;
+    width: 100vw;
+  }
+
+  #root {
+    display: flex;
+  }
+
+  // Contents
+
+
+`;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <>
+    <GlobalStyle />
     <App />
-  </React.StrictMode>
+  </>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
