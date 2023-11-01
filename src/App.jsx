@@ -52,6 +52,13 @@ const InputGroup = styled.section`
   }
 `;
 
+const NoneToDo = styled.p`
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 2rem;
+`;
+
 const ToDoList = styled.section`
   height: auto;
   border-radius: 0.5rem;
@@ -116,7 +123,6 @@ function App() {
       <Header>
         <h1>ToDo</h1>
       </Header>
-
       <InputGroup>
         <input
           type="text"
@@ -129,13 +135,14 @@ function App() {
       <ToDoList>
         {toDoList.length === 0 ? (
           <ToDoList key={0}>
-            <p>데이터가 없습니다.</p>
+            <NoneToDo>데이터가 없습니다.</NoneToDo>
           </ToDoList>
         ) : (
-          toDoList.map((toDo) => (
+          toDoList.map((toDoItem) => (
             <ToDoCard
               key={toDo.id}
-              toDo={toDo}
+              toDo={toDoItem}
+              toDoList={{ toDoList, setToDoList }}
               handlerOnClickDel={handlerOnClickDel}
               handlerOnClickComplete={handlerOnClickComplete}
             />
