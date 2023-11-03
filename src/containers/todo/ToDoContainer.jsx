@@ -133,10 +133,10 @@ const ToDoListSection = styled.section`
         overflow: scroll;
         max-height: 18rem;
         word-break: break-word;
-        scrollbar-width: none;
+        /*scrollbar-width: none;
         &::-webkit-scrollbar {
           display: none;
-        }
+        }*/
       }
     }
   }
