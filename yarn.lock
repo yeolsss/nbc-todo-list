@@ -6655,10 +6655,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-nbc-use-storage@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/nbc-use-storage/-/nbc-use-storage-1.0.2.tgz#ed11577271d2b450170d48dc4abf210e5a83a944"
-  integrity sha512-mbBEDn0jpt9HBlHIm49dHFzd878Xb6sO38aw1UnIydJntt3loayoEI5b0G7ZPMHcTjeYeWlXqBdVHjvKrYHyrw==
+nbc-use-storage@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/nbc-use-storage/-/nbc-use-storage-1.0.3.tgz#15056336037cce89ca14add93eab8f0b0f174ae9"
+  integrity sha512-qENJgJ8JAlNR0YiqS9JqiZt+qi2KCGAR60Ak1KDRt0U9QaNoHv5QU9fU+9c+xhHnhsX8f6764gZCr9yH6Qn/fA==
 
 negotiator@0.6.3:
   version "0.6.3"
