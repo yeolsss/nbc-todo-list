@@ -133,7 +133,7 @@ const ToDoListSection = styled.section`
         overflow: scroll;
         max-height: 18rem;
         scrollbar-width: none;
-        p::-webkit-scrollbar {
+        &::-webkit-scrollbar {
           display: none;
         }
       }
