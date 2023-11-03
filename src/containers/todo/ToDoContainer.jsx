@@ -54,7 +54,7 @@ function ToDoContainer() {
       />
       <ToDoListSection>
         {workingToDo.length === 0 ? (
-          <p>할 일이 없어요!</p>
+          <NonToDo>할 일이 없어요!</NonToDo>
         ) : (
           <>
             <h1>🔥할 일!🔥</h1>
@@ -135,6 +135,13 @@ const ToDoListSection = styled.section`
       }
     }
   }
+`;
+
+const NonToDo = styled.p`
+  margin: 20rem auto;
+  font-size: 5rem;
+  text-align: center;
+  font-weight: bold;
 `;
 
 export default ToDoContainer;
