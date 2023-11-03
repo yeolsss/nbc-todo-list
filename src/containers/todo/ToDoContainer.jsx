@@ -132,6 +132,10 @@ const ToDoListSection = styled.section`
         margin-top: 2rem;
         overflow: scroll;
         max-height: 18rem;
+        scrollbar-width: none;
+        p::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
   }
