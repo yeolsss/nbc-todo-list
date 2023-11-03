@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 import styled from "styled-components";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const Container = styled.div`
   max-width: 120rem;
@@ -13,10 +15,12 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Container>
-      <Header />
-      <Main />
-    </Container>
+    <Provider store={store}>
+      <Container>
+        <Header />
+        <Main />
+      </Container>
+    </Provider>
   );
 }
 

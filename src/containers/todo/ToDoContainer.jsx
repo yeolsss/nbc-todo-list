@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import useStorage from "nbc-use-storage";
+import React, { useState } from "react";
 import ToDoForm from "../../components/ToDoForm";
 import styled from "styled-components";
 import ToDoCard from "../../components/ToDoCard";
+import { useSelector } from "react-redux";
+import { selectToDos } from "../../reducer/toDoReducer";
 
 function ToDoContainer() {
+  const toDoList = useSelector(selectToDos);
+
   const TO_DO_LIST_KEY = "toDoList";
   const [titleValue, setTitleValue] = useState("");
-  const [toDoList, setToDoList] = useState([]);
   const [toDoValue, setToDoValue] = useState("");
-  const [getStorage, setStorage] = useStorage();
   const [workingToDo, doneToDo] = toDoList.reduce(
     (acc, cus) => {
       acc[!cus.isDone ? 0 : 1].push(cus);
@@ -18,38 +19,12 @@ function ToDoContainer() {
     [[], []],
   );
 
-  useEffect(() => {
-    setToDoList(getStorage(TO_DO_LIST_KEY) || []);
-  }, []);
-
-  const handleDeleteToDo = (id) => {
-    const newToDoList = toDoList.filter(
-      (toDo) => toDo.id.toString() !== id.target.parentNode.dataset.id,
-    );
-    setStorage(newToDoList, TO_DO_LIST_KEY);
-    setToDoList(newToDoList);
-  };
-
-  const handleDoneToDo = (id) => {
-    const newToDoList = toDoList.map((toDo) => {
-      if (toDo.id.toString() === id.target.parentNode.dataset.id) {
-        return {
-          ...toDo,
-          isDone: !toDo.isDone,
-        };
-      }
-      return { ...toDo };
-    });
-    setStorage(newToDoList, TO_DO_LIST_KEY);
-    setToDoList(newToDoList);
-  };
-
   return (
     <>
       <ToDoForm
         title={{ titleValue: titleValue, setTitleValue: setTitleValue }}
         toDo={{ toDoValue: toDoValue, setToDoValue: setToDoValue }}
-        toDoList={setToDoList}
+        toDoList={null}
         constToDo={TO_DO_LIST_KEY}
       />
       <ToDoListSection>
@@ -60,12 +35,7 @@ function ToDoContainer() {
             <h1>🔥할 일!🔥</h1>
             <ul>
               {workingToDo.map((toDo) => (
-                <ToDoCard
-                  handleDeleteToDo={handleDeleteToDo}
-                  handleDoneToDo={handleDoneToDo}
-                >
-                  {toDo}
-                </ToDoCard>
+                <ToDoCard>{toDo}</ToDoCard>
               ))}
             </ul>
           </>
@@ -76,12 +46,7 @@ function ToDoContainer() {
           <h1>🎉완료!🎉</h1>
           <ul>
             {doneToDo.map((toDo) => (
-              <ToDoCard
-                handleDeleteToDo={handleDeleteToDo}
-                handleDoneToDo={handleDoneToDo}
-              >
-                {toDo}
-              </ToDoCard>
+              <ToDoCard>{toDo}</ToDoCard>
             ))}
           </ul>
         </ToDoListSection>

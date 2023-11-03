@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { toDoDeleted, toDoToggle } from "../reducer/toDoReducer";
 
-export default function ToDoCardBtns({
-  toDo,
-  handleDeleteToDo,
-  handleDoneToDo,
-}) {
+export default function ToDoCardBtns({ toDo }) {
   const { id, isDone } = toDo;
+  const dispatch = useDispatch();
+  const handleDeleteToDo = (event) => {
+    dispatch(toDoDeleted(event.target.parentNode.dataset.id));
+  };
+  const handleDoneToDo = (event) => {
+    dispatch(toDoToggle(event.target.parentNode.dataset.id));
+  };
   return (
     <ButtonSection data-id={id}>
       <Buttons isDone={isDone} handler={handleDeleteToDo} text={"삭제"} />
