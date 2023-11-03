@@ -38,8 +38,11 @@ function ToDoForm({ title, toDo, toDoList, constToDo }) {
     const newToDoList = [...getStorage(constToDo), newToDo];
     setStorage(newToDoList, constToDo);
     toDoList(newToDoList);
-    title.setTitleValue("");
-    toDo.setToDoValue("");
+    resetInput(title.setTitleValue, toDo.setToDoValue);
+  };
+
+  const resetInput = (...setValue) => {
+    setValue.forEach((value) => value(""));
   };
 
   return (
