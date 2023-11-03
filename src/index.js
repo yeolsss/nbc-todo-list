@@ -26,13 +26,23 @@ const GlobalStyle = createGlobalStyle`
   input {
     border: none;
     outline: none;
+    background-color: unset;
+  }
+  p{
+    margin: 0;
+    
   }
 
   // Typography
   :root {
-    --main-bg-color: #353b48;
+    --main-bg-color: #2f3640;
+    --sub-bg-color: #353b48;
     --main-font-color: #f5f6fa;
 
+    --border-radius: 0.5rem;
+    --border-error: #e84118;
+    
+    
     // todo button color
     --todo-update-btn-color: #fbc531;
     --todo-update-btn-color-hover: #e1b12c;
@@ -49,6 +59,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Nanum Gothic Coding', monospace;
     width: 100vw;
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
   }
 
   #root {

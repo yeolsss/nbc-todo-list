@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
-import useStorage from "nbc-use-storage";
+import React from "react";
+import Header from "./layout/Header";
+import Main from "./layout/Main";
 import styled from "styled-components";
 
-function App() {
-  const toDoObj = {
-    id: Date.now(),
-    title: "",
-    content: "",
-    isState: false,
-  };
-  const [toDo, setToDo] = useState("");
+const Container = styled.div`
+  max-width: 120rem;
+  min-width: 80rem;
+  width: 100%;
+  margin: 0 auto;
+  //box-shadow: inset 0 0 20px red;
+`;
 
-  return <></>;
+function App() {
+  return (
+    <Container>
+      <Header />
+      <Main />
+    </Container>
+  );
 }
 
 export default App;
