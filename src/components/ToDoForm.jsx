@@ -52,7 +52,7 @@ export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
         <Input
           inputValue={title.titleValue}
           handle={handleOnChangeTitle}
-          ref={titleRef}
+          refData={titleRef}
         />
       </InputWrapper>
       <InputWrapper isEmpty={toDoError}>
@@ -60,7 +60,7 @@ export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
         <Input
           inputValue={toDo.toDoValue}
           handle={handleOnChangeToDo}
-          ref={toDoRef}
+          refData={toDoRef}
         />
       </InputWrapper>
       <InputWrapper>
@@ -127,6 +127,8 @@ const ToDoAddBtn = styled.button`
   }
 `;
 
-const Input = ({ inputValue, handle, ref }) => {
-  return <input type="text" value={inputValue} onChange={handle} ref={ref} />;
+const Input = ({ inputValue, handle, refData }) => {
+  return (
+    <input type="text" value={inputValue} onChange={handle} ref={refData} />
+  );
 };
