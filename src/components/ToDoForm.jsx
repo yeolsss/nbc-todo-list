@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { validData } from "../lib/util.js";
 import useStorage from "nbc-use-storage";
 
-function ToDoForm({ title, toDo, toDoList, constToDo }) {
+export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
   const titleRef = useRef(null);
   const toDoRef = useRef(null);
   const [titleError, setTitleError] = useState(false);
@@ -49,19 +49,17 @@ function ToDoForm({ title, toDo, toDoList, constToDo }) {
     <Form onSubmit={onSubmitToDo}>
       <InputWrapper isEmpty={titleError}>
         <span>제목</span>
-        <input
-          type="text"
-          value={title.titleValue}
-          onChange={handleOnChangeTitle}
+        <Input
+          inputValue={title.titleValue}
+          handle={handleOnChangeTitle}
           ref={titleRef}
         />
       </InputWrapper>
       <InputWrapper isEmpty={toDoError}>
         <span>할 일</span>
-        <input
-          type="text"
-          value={toDo.toDoValue}
-          onChange={handleOnChangeToDo}
+        <Input
+          inputValue={toDo.toDoValue}
+          handle={handleOnChangeToDo}
           ref={toDoRef}
         />
       </InputWrapper>
@@ -129,4 +127,6 @@ const ToDoAddBtn = styled.button`
   }
 `;
 
-export default ToDoForm;
+const Input = ({ inputValue, handle, ref }) => {
+  return <input type="text" value={inputValue} onChange={handle} ref={ref} />;
+};
