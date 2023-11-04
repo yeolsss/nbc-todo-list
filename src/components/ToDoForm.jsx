@@ -4,7 +4,7 @@ import { validData } from "../lib/util.js";
 import { useDispatch } from "react-redux";
 import { toDoAdded } from "../reducer/toDoReducer";
 
-export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
+export default function ToDoForm({ title, toDo }) {
   const dispatch = useDispatch();
   const titleRef = useRef(null);
   const toDoRef = useRef(null);

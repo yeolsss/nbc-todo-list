@@ -24,8 +24,6 @@ function ToDoContainer() {
       <ToDoForm
         title={{ titleValue: titleValue, setTitleValue: setTitleValue }}
         toDo={{ toDoValue: toDoValue, setToDoValue: setToDoValue }}
-        toDoList={null}
-        constToDo={TO_DO_LIST_KEY}
       />
       <ToDoListSection>
         {workingToDo.length === 0 ? (
