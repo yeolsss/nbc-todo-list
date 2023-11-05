@@ -10,6 +10,7 @@ const Container = styled.div`
   min-width: 80rem;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 10rem;
 `;
 
 function App() {
