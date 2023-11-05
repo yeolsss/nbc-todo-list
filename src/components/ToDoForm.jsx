@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { validData } from "../lib/util.js";
-import useStorage from "nbc-use-storage";
+import { useDispatch } from "react-redux";
+import { toDoAdded } from "../reducer/toDoReducer";
 
-export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
+export default function ToDoForm({ title, toDo }) {
+  const dispatch = useDispatch();
   const titleRef = useRef(null);
   const toDoRef = useRef(null);
   const [titleError, setTitleError] = useState(false);
   const [toDoError, setToDoError] = useState(false);
-  const [getStorage, setStorage] = useStorage([], "todo");
 
   const handleOnChangeTitle = (event) => {
     title.setTitleValue(event.target.value);
@@ -35,9 +36,8 @@ export default function ToDoForm({ title, toDo, toDoList, constToDo }) {
       isDone: false,
       id: Date.now(),
     };
-    const newToDoList = [...getStorage(constToDo), newToDo];
-    setStorage(newToDoList, constToDo);
-    toDoList(newToDoList);
+
+    dispatch(toDoAdded(newToDo));
     resetInput(title.setTitleValue, toDo.setToDoValue);
   };
 
