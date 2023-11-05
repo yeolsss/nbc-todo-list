@@ -35,9 +35,9 @@ const GlobalStyle = createGlobalStyle`
 
   // Typography
   :root {
-    --main-bg-color: #2f3640;
+    --main-bg-color: #dcdde1;
     --sub-bg-color: #353b48;
-    --main-font-color: #f5f6fa;
+    --main-font-color: #353b48;
 
     --border-radius: 0.5rem;
     --border-error: #e84118;

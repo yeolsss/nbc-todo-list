@@ -10,7 +10,6 @@ const Container = styled.div`
   min-width: 80rem;
   width: 100%;
   margin: 0 auto;
-  //box-shadow: inset 0 0 20px red;
 `;
 
 function App() {

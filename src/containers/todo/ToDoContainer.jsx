@@ -30,7 +30,7 @@ function ToDoContainer() {
           <NonToDo>할 일이 없어요!</NonToDo>
         ) : (
           <>
-            <h1>🔥할 일!🔥</h1>
+            <h1>🔥Todo!🔥</h1>
             <ul>
               {workingToDo.map((toDo) => (
                 <ToDoCard>{toDo}</ToDoCard>
@@ -41,7 +41,7 @@ function ToDoContainer() {
       </ToDoListSection>
       {doneToDo.length !== 0 ? (
         <ToDoListSection>
-          <h1>🎉완료!🎉</h1>
+          <h1>🎉Done!🎉</h1>
           <ul>
             {doneToDo.map((toDo) => (
               <ToDoCard>{toDo}</ToDoCard>
@@ -58,6 +58,7 @@ const ToDoListSection = styled.section`
 
   > h1 {
     font-size: 4rem;
+    font-weight: bold;
   }
 
   > ul {
