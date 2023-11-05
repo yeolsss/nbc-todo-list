@@ -8,7 +8,6 @@ import { selectToDos } from "../../reducer/toDoReducer";
 function ToDoContainer() {
   const toDoList = useSelector(selectToDos);
 
-  const TO_DO_LIST_KEY = "toDoList";
   const [titleValue, setTitleValue] = useState("");
   const [toDoValue, setToDoValue] = useState("");
   const [workingToDo, doneToDo] = toDoList.reduce(
