@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import store from "./store";
+import { GlobalStyle } from "./GlobalStyle";
+import { themes } from "./theme";
+import ThemeButton from "./components/ThemeButton";
 
 const Container = styled.div`
   max-width: 120rem;
@@ -14,12 +17,18 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [themeName, setThemeName] = useState("light");
+
   return (
     <Provider store={store}>
-      <Container>
-        <Header />
-        <Main />
-      </Container>
+      <ThemeProvider theme={themes[themeName]}>
+        <GlobalStyle />
+        <Container>
+          <ThemeButton themeObj={{ themeName, setThemeName }} />
+          <Header />
+          <Main />
+        </Container>
+      </ThemeProvider>
     </Provider>
   );
 }
